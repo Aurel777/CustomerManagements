@@ -13,7 +13,7 @@
         <Label Content="Country" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,110,0,0" />
         <Label Content="PhoneNumber" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,135,0,0" />
         <Label Content="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,167,0,0" />
-        <Label Name ="LabelInfo"  Content="" HorizontalAlignment="Left" Margin="265,202,0,0" VerticalAlignment="Top" Width="279"/>
+        <Label Name ="LabelInfo"  Content="" HorizontalAlignment="Left" Margin="373,202,0,0" VerticalAlignment="Top" Width="171"/>
 
         <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="208"
                  Margin="132,139,0,0" />
@@ -42,7 +42,7 @@
         <Button Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"
                 Margin="96,205,0,0" Click="deleteButton_Click" />
         <Button Name="AddButton" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"
-                Margin="265,205,0,0" Click="addButton_Click" Visibility="Hidden" />
+                Margin="265,205,0,0" Click="addButton_Click" />
         <Button Name="SearchButton" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"
                 Margin="176,205,0,0" Click="searchButton_Click" />
 

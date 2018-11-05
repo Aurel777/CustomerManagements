@@ -43,6 +43,8 @@
 
         void AddNewCustomer()
         {
+            // TODO : this doesn't fix the issue. 
+            // e.g : I'm a dumbass would throw an exception because of the single quote
             var newCustomer = new Customer(FirstNameBox.Text.Replace("'","\\'"), LastNameBox.Text.Replace("'", "\\'"))
             {
                 Address = AddressBox.Text.Replace("'", "\\'"),

@@ -34,7 +34,7 @@
         {
             InitializeComponent();
             dbEngine = new DataBaseEngine(Path.GetFileNameWithoutExtension(DatabaseName));
-            AddTimer(500);
+            AddTimer(5);
             FetchCustomers();
         }
 
@@ -98,6 +98,7 @@
 
         void FetchCustomers()
         {
+            // Linq to SQL version
             //foreach (var customer in LinqCustomersAccessor.GetCustomers())
             //    AllCustomersComboBox.Items.Add(customer);
             foreach (var customer in dbEngine.Select($"SELECT * FROM {TableName}"))
