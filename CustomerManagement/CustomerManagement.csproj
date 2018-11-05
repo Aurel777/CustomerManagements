@@ -72,9 +72,9 @@
     <Compile Include="Database\ConnectionStringNotFoundException.cs" />
     <Compile Include="Database\Engine.cs" />
     <Compile Include="Database\InvalidConnectionStringException.cs" />
-    <Compile Include="Database\LinqToSql\LinqCustomer.cs" />
+    <Compile Include="Database\LinqToSql\Customer.cs" />
     <Compile Include="Database\LinqToSql\LinqDatabase.cs" />
-    <Compile Include="Database\LinqToSql\LinqCustomersAccessor.cs" />
+    <Compile Include="Database\LinqToSql\CustomersAccessor.cs" />
     <Compile Include="Database\MismatchingUpdateArgumentException.cs" />
     <Compile Include="Database\OpenDatabaseException.cs" />
     <Compile Include="Database\Queries.cs" />

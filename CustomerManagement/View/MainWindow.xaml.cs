@@ -1,6 +1,4 @@
-﻿using CustomerManagement.Database.LinqToSql;
-
-namespace CustomerManagement.View
+﻿namespace CustomerManagement.View
 {
     #region Using Statements
 
@@ -100,10 +98,10 @@ namespace CustomerManagement.View
 
         void FetchCustomers()
         {
-            foreach (var customer in LinqCustomersAccessor.GetCustomers())
-                AllCustomersComboBox.Items.Add(customer);
-            //foreach (var customer in dbEngine.Select($"SELECT * FROM {TableName}"))
+            //foreach (var customer in LinqCustomersAccessor.GetCustomers())
             //    AllCustomersComboBox.Items.Add(customer);
+            foreach (var customer in dbEngine.Select($"SELECT * FROM {TableName}"))
+                AllCustomersComboBox.Items.Add(customer);
             RefreshCustomers($"{AllCustomersComboBox.Items.Count} customers have been fetched.");
         }
 
