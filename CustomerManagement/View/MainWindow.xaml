@@ -45,6 +45,7 @@
                 Margin="265,205,0,0" Click="addButton_Click" />
         <Button Name="SearchButton" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"
                 Margin="176,205,0,0" Click="searchButton_Click" />
+        <Button Name="AboutButton" Content="About"  HorizontalAlignment="Left" Margin="373,31,0,0" VerticalAlignment="Top" Width="171" Click="AboutButton_Click"/>
 
     </Grid>
 </Window>

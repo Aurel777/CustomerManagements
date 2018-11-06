@@ -23,7 +23,7 @@
 
         #region Constructors
 
-        public DataBaseEngine(string dataBaseName )
+        public DataBaseEngine(string dataBaseName)
         {
             databaseName = dataBaseName;
             InitializeConnectionString();
@@ -32,7 +32,13 @@
         ~DataBaseEngine() => Dispose(false);
 
         #endregion
-        
+
+        #region Properties
+
+        public bool UseTableNameCache { get; set; }
+
+        #endregion
+
         #region Methods
 
         public int Add(string query) => ExecuteNonQuery(query);
@@ -103,18 +109,22 @@
             {
                 connection.Open();
                 var reader = command.ExecuteReader();
-                while (reader.Read())
+                if (reader.HasRows)
                 {
-                    yield return new Customer(reader[1].ToString(), reader[2].ToString())
+                    while (reader.Read())
                     {
-                        Id =  int.Parse(reader[0].ToString()),
-                        Address = reader[3].ToString(),
-                        PostCode = reader[4].ToString(),
-                        Country = reader[5].ToString(),
-                        PhoneNumber = reader[6].ToString(),
-                        Email = reader[7].ToString()
-                    };
+                        yield return new Customer(reader[1].ToString(), reader[2].ToString())
+                        {
+                            Id = int.Parse(reader[0].ToString()),
+                            Address = reader[3].ToString(),
+                            PostCode = reader[4].ToString(),
+                            Country = reader[5].ToString(),
+                            PhoneNumber = reader[6].ToString(),
+                            Email = reader[7].ToString()
+                        };
+                    }
                 }
+
                 connection.Close();
             }
         }

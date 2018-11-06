@@ -66,7 +66,7 @@
                 return;
 
             var customerToDelete = (Customer)DataContext;
-            if (dbEngine.Delete(Queries.DeleteQuery(TableName, $"Id={AllCustomersComboBox.SelectedIndex}")) > 0)
+            if (dbEngine.Delete(Queries.DeleteQuery(TableName, $"Id={customerToDelete.Id}")) > 0)
                 RefreshCustomers($"{customerToDelete.ToString()} deleted.");
             
         }
@@ -83,7 +83,14 @@
             RefreshCustomers($"{e.NewCustomer.ToString()} added.");
         }
 
-        void DispatcherTimer_Tick(object sender, EventArgs e) => LabelInfo.Content = string.Empty; 
+        void AboutButton_Click(object sender, RoutedEventArgs e) => new AboutWindow().ShowDialog();
+
+
+        void DispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            LabelInfo.Content = string.Empty;
+            dispatcherTimer.Stop();
+        }
 
         #endregion
 
@@ -93,7 +100,6 @@
         {
             dispatcherTimer = new DispatcherTimer { Interval = new TimeSpan(0, 0, intervalInSeconds) };
             dispatcherTimer.Tick += DispatcherTimer_Tick;
-            dispatcherTimer.Start();
         }
 
         void FetchCustomers()
@@ -108,6 +114,7 @@
 
         void RefreshCustomers(string labelInfoContent = "")
         {
+            dispatcherTimer.Start();
             LabelInfo.Content = labelInfoContent;
             if (AllCustomersComboBox.Items.Count > 0)
                 AllCustomersComboBox.SelectedIndex = AllCustomersComboBox.Items.Count - 1;

@@ -39,6 +39,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,6 +56,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml">
@@ -78,9 +81,16 @@
     <Compile Include="Database\MismatchingUpdateArgumentException.cs" />
     <Compile Include="Database\OpenDatabaseException.cs" />
     <Compile Include="Database\Queries.cs" />
+    <Compile Include="Model\Extensions\ExtensionsMethods.cs" />
+    <Compile Include="Model\NativeMethods\NativeMethods.cs" />
     <Compile Include="Model\NewCustomerAddedEventArgs.cs" />
+    <Compile Include="Model\SinusoidalScrollingText.cs" />
+    <Compile Include="ViewModel\ViewModel.cs" />
     <Compile Include="View\SearchCustomerScreen.xaml.cs">
       <DependentUpon>SearchCustomerScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AboutScreen.xaml.cs">
+      <DependentUpon>AboutScreen.xaml</DependentUpon>
     </Compile>
     <Page Include="View\AddCustomerScreen.xaml">
       <SubType>Designer</SubType>
@@ -103,6 +113,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\SearchCustomerScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AboutScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,5 +168,6 @@
       <DependentUpon>Customers.mdf</DependentUpon>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
